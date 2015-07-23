@@ -7,11 +7,56 @@
   <h1>Product Page Aggregator</h1>
 
 
+<ul>
+  {{#each tasks}}
+        {{> task}}
+      {{/each}}
+</ul>
+
+<div>
+{{> product}}
+</div>
+
+
+
   
 </body>
 
-<template name="hello">
+<template name="task">
+ <ul> {{price}} </ul>
 </template>
+
+
+
+<template name="product">
+ <ul>
+<!--  {{#each example}} -->
+ 	{{example}}
+<!--  {{/each}} -->
+ </ul>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <template name="navbar">
 <nav class="navbar navbar-default">
@@ -30,10 +75,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Women <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Men</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men <span class="caret"></span></a>
+	        	<ul class="dropdown-menu">
+	        		<li> <a href="#">Shirts</a></li>
+	        		<li><a href="#">Jeans</a></li>
+	        	</ul>
+	        </li>
+	        <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Blouses</a></li>
             <li><a href="#">Dresses</a></li>
@@ -52,9 +102,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Sale</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
