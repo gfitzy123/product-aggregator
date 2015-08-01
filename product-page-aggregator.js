@@ -19,10 +19,7 @@ if (Meteor.isClient) {
             Products.remove(array[i]._id);
             continue; 
           }
-
-          console.log('sup1', array[i]);
-          console.log('sup2', array[i].images);
-  
+ 
           var url = array[i].images[0].url;
           arrayOfObjects.push(array[i]);
           arrayOfObjects[i].image = url;
