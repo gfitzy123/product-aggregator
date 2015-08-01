@@ -5,23 +5,36 @@ if (Meteor.isClient) {
       Session.set('dataLoaded', false);
     });
 
-    var array = Products.find().fetch();
+  
     var productList = [];
-    var arrayOfObjects = [];
+
 
     Meteor.subscribe('liveProducts', function(){
         Session.set('dataLoaded', Products.find().fetch());
-        console.log('liveproducts', Session.get('liveProducts'));
+          var array = Products.find().fetch();
+              var arrayOfObjects = [];
   
         for (var i = 0; i < array.length; i++) {
-          console.log('suup', array[i].product);
-          var url = array[i].product[0].images[0].url;
-          arrayOfObjects.push(array[i].product[0]);
+
+          if (array[i].images === undefined) {
+
+            console.log('delete this', array[i]);
+            Products.remove(array[i]._id);
+            continue; 
+          }
+
+          console.log('sup1', array[i]);
+          console.log('sup2', array[i].images);
+  
+          var url = array[i].images[0].url;
+          arrayOfObjects.push(array[i]);
+          console.log('arrayofObects', arrayOfObjects[i]);
+          console.log(i);
           arrayOfObjects[i].image = url;
         }
 
-      Session.set('arrayOfObjects', arrayOfObjects);
-      console.log('arrayofobjects', arrayOfObjects);
+        Session.set('arrayOfObjects', arrayOfObjects);
+        console.log('arrayofobjects', arrayOfObjects);
     });
 
     Template.body.helpers({
@@ -36,11 +49,11 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
      Meteor.publish('liveProducts', function() {
       // return Products.remove({});
-      console.log('publishing', Products.find({}));
+
       return Products.find({}, {limit: 100});
     });
-  Meteor.startup(function () {
 
+  Meteor.startup(function () {
 
     // code to run on server at startup
     // HTTP.get('http://api.diffbot.com/v3/product?token=19c08b6b8af2155e6b35859a437eeeb4&url=http://shop.guess.com/en/Catalog/View/women/discounts-deals/low-rise-power-skinny-jeans-with-silicone-rinse/WB1AB2R0YT2&', function(error, result)
