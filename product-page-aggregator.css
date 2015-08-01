@@ -5,6 +5,10 @@ h3 {
 	color: white;
 	src: url(ferrum.otf);
 }
+
+nav.navbar.navbar-default {
+	background-color: black;
+}
 body {
 	background-color: black;
 }
@@ -12,4 +16,26 @@ body {
 .container {
 	border-style: solid;
     border-width: 5px;
+}
+
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    border:1px solid grey;
+}
+
+.button {
+    position:absolute;
+    bottom:100px;
+    left:50px;
+    width:100px;
+    height:30px;
+    border: 2px solid #dddddd;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px 16px;
+    text-transform: uppercase;
+    display: inline-block;
 }

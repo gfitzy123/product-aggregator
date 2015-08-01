@@ -3,16 +3,17 @@
 </head>
 
 <body>
+
 	{{> navbar }}
-  
-
-
 
   {{#each products }}
-    <div class='col-md-3 col-sm-6 item'>
+    <div class='col-md-3 item'>
       <h3> {{ title }}  </h3>
-      <img src={{ image }}>    
+      <div id='img_container'>
+        <img src={{ image }}>  
+      </div>  
       <h3> {{ offerPrice }} </h3>
+      <button class='button'> Buy </button>
 
     </div>
   {{/each}}
@@ -20,30 +21,6 @@
   
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <template name="navbar">
