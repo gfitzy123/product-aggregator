@@ -4,37 +4,25 @@
 
 <body>
 	{{> navbar }}
-  <h1>Product Page Aggregator</h1>
+  
 
 
-<ul>
-  {{#each tasks}}
-        {{> task}}
-      {{/each}}
-</ul>
 
-<div>
-{{> product}}
-</div>
+  {{#each products }}
+    <div class='col-md-3 col-sm-6 item'>
+      <h3> {{ title }}  </h3>
+      <img src={{ image }}>    
+      <h3> {{ offerPrice }} </h3>
 
-
+    </div>
+  {{/each}}
 
   
+
 </body>
 
-<template name="task">
- <ul> {{price}} </ul>
-</template>
 
 
-
-<template name="product">
- <ul>
-<!--  {{#each example}} -->
- 	{{example}}
-<!--  {{/each}} -->
- </ul>
-</template>
 
 
 
